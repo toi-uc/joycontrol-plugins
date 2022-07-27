@@ -111,7 +111,7 @@ class TokageShibaki(JoycontrolPlugin):
             await self.button_press('r')
             await self.left_stick(angle=141)
             await self.wait(2)
-            await self.left_stick(angle=284)
+            await self.left_stick(angle=266)
             await self.wait(0.8)
             for i in range(4):
                 await self.button_push('a')
