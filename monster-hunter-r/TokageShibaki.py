@@ -27,9 +27,9 @@ class TokageShibaki(JoycontrolPlugin):
         if self.options is None:
             raise JoycontrolPluginError('Plugin options is not set.')
 
-        questlevel = self.options[0] # クエストのレベル選択画面、上から何番目か
-        questpage  = self.options[1] # 選んだレベルのクエスト一覧の選択画面、何ページ目か
-        questlist  = self.options[2] # 選んだページ内、上から何番目のクエストか
+        questlevel = int(self.options[0]) # クエストのレベル選択画面、上から何番目か
+        questpage  = int(self.options[1]) # 選んだレベルのクエスト一覧の選択画面、何ページ目か
+        questlist  = int(self.options[2]) # 選んだページ内、上から何番目のクエストか
 
 
         # // 開始直後のみ、はじめに集会所入り口へ移動する
