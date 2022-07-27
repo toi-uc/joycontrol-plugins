@@ -207,8 +207,8 @@ class TokageShibaki(JoycontrolPlugin):
                 await self.button_push('a')
                 await self.wait(0.1)
             # // 四角形の渦上に移動、立ち止まらずにA押しを繰り返し
-            await self.left_stick(angle=0, power=half_power)
-            for i in range(3):
+            await self.left_stick(angle=180, power=half_power)
+            for i in range(1):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick('center', power=half_power)
@@ -220,19 +220,19 @@ class TokageShibaki(JoycontrolPlugin):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=45, power=half_power)
-            for i in range(3):
+            for i in range(2):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=135, power=half_power)
-            for i in range(3):
+            for i in range(2):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=225, power=half_power)
-            for i in range(3):
+            for i in range(2):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=315, power=half_power)
-            for i in range(3):
+            for i in range(2):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=45, power=half_power)
@@ -240,19 +240,19 @@ class TokageShibaki(JoycontrolPlugin):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=135, power=half_power)
-            for i in range(5):
+            for i in range(4):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=225, power=half_power)
-            for i in range(5):
+            for i in range(4):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=315, power=half_power)
-            for i in range(7):
+            for i in range(5):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=45, power=half_power)
-            for i in range(6):
+            for i in range(5):
                 await self.button_push('a')
                 await self.wait(0.05)
             await self.left_stick(angle=45, power=half_power)
