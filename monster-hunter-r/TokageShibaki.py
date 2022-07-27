@@ -26,7 +26,7 @@ class TokageShibaki(JoycontrolPlugin):
         # 変数
         questlevel = 1 #クエストのレベル選択画面、上から何番目か
         questpage = 1; # 選んだレベルのクエスト一覧の選択画面、何ページ目か
-        questlist = 3; # 選んだページ内、上から何番目のクエストか
+        questlist = 1; # 選んだページ内、上から何番目のクエストか
 
         # while True:
         # 集会所初期位置～受付話しかけ
@@ -42,8 +42,8 @@ class TokageShibaki(JoycontrolPlugin):
         await self.left_stick('center') 
         await self.button_release('r')
         # // 集会所クエスト　マスター（緊急クエストが出ている場合、下入力が必要)
-        await self.button_push('down')
-        await self.wait(0.1)
+        # await self.button_push('down')
+        # await self.wait(0.1)
         await self.button_push('a')
         await self.wait(3)
         # // MRの溶岩洞での狩猟クエスト選択（上記、設定項目を参照）
@@ -74,3 +74,34 @@ class TokageShibaki(JoycontrolPlugin):
         for i in range(7):
             await self.button_push('b')
             await self.wait(0.1)
+
+        # // クエスト選択後、団子(マイセット25)を食べる
+    #     // クエスト受注後から食事場の椅子に座る
+        await self.button_press('r')
+        await self.left_stick(angle=307)
+        await self.wait(2)
+        await self.left_stick(angle=187)
+        await self.wait(0.8)
+        for i in range(4):
+            await self.button_push('a')
+            await self.wait(0.1)
+        await self.left_stick('center')
+        await self.button_release('r')
+        await self.wait(2.8)
+    #     // 食事＞お金で＞いつもの＞マイセット25
+    #     pushButton(Button::A, 500);
+    #     pushButton(Button::A, 300, 2);
+    #     pushHatButton(Hat::LEFT, 200);
+    #     pushButton(Button::A, 300, 2);
+    #     pushButton(Button::B, 100, 25);
+    #     delay(500);
+
+        # // 団子を食べた後、ZRにてクエスト開始
+        # void startQuest(){
+        #     // クエスト開始
+        #     pushButton(Button::ZR, 300);
+        #     pushButton(Button::A, 3000);
+        #     pushButton(Button::B, 100, 5);
+        #     // クエスト開始まで待機
+        #     delay(18000);
+        # }
