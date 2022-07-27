@@ -78,9 +78,9 @@ class TokageShibaki(JoycontrolPlugin):
         # // クエスト選択後、団子(マイセット25)を食べる
     #     // クエスト受注後から食事場の椅子に座る
         await self.button_press('r')
-        await self.left_stick(angle=307)
+        await self.left_stick(angle=143)
         await self.wait(2)
-        await self.left_stick(angle=187)
+        await self.left_stick(angle=263)
         await self.wait(0.8)
         for i in range(4):
             await self.button_push('a')
@@ -89,12 +89,22 @@ class TokageShibaki(JoycontrolPlugin):
         await self.button_release('r')
         await self.wait(2.8)
     #     // 食事＞お金で＞いつもの＞マイセット25
-    #     pushButton(Button::A, 500);
-    #     pushButton(Button::A, 300, 2);
-    #     pushHatButton(Hat::LEFT, 200);
-    #     pushButton(Button::A, 300, 2);
-    #     pushButton(Button::B, 100, 25);
-    #     delay(500);
+        await self.button_push('a')
+        await self.wait(0.5)
+        await self.button_push('a')
+        await self.wait(0.3)
+        await self.button_push('a')
+        await self.wait(0.3)
+        await self.button_push('left')
+        await self.wait(0.2)
+        await self.button_push('a')
+        await self.wait(0.3)
+        # await self.button_push('a')
+        # await self.wait(0.3)
+        # for i in range(25):
+        #     await self.button_push('b')
+        #     await self.wait(0.1)
+        # await self.wait(0.5)
 
         # // 団子を食べた後、ZRにてクエスト開始
         # void startQuest(){
