@@ -190,7 +190,7 @@ class TokageShibaki(JoycontrolPlugin):
             await self.left_stick('center')
             await self.wait(4)
             await self.left_stick(angle=315, power=half_power) # 80, 80が怪しい
-            await self.wait(0.4)
+            await self.wait(0.8)
             await self.left_stick('center')
             await self.wait(0.3)
             # // 武器出しからA連打、スラアクぶん回し
