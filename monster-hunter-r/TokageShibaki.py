@@ -24,14 +24,14 @@ class TokageShibaki(JoycontrolPlugin):
         logger.info('TokageShibaki')
 
         # 変数
-        questlevel = 2 #クエストのレベル選択画面、上から何番目か
+        questlevel = 1 #クエストのレベル選択画面、上から何番目か
         questpage = 1; # 選んだレベルのクエスト一覧の選択画面、何ページ目か
         questlist = 3; # 選んだページ内、上から何番目のクエストか
 
         # while True:
         # 集会所初期位置～受付話しかけ
         await self.button_press('r')
-        await self.left_stick(angle=225)
+        await self.left_stick(angle=45)
         await self.wait(1)
         await self.button_push('a')
         await self.wait(0.1)
@@ -41,17 +41,36 @@ class TokageShibaki(JoycontrolPlugin):
         await self.wait(1)
         await self.left_stick('center') 
         await self.button_release('r')
-
-        # // 集会所クエスト　マスター（緊急クエストが出ている場合、下入力が必要）
-        # pushButton(Button::A, 300);
+        # // 集会所クエスト　マスター（緊急クエストが出ている場合、下入力が必要)
+        await self.button_release('down')
+        await self.wait(0.1)
+        await self.button_release('a')
+        await self.wait(3)
         # // MRの溶岩洞での狩猟クエスト選択（上記、設定項目を参照）
         # // クエストレベル、上からX番目を選択
-        # pushHatButton(Hat::DOWN, 200, questlevel -1);
-        # pushButton(Button::A, 1000);
+        if questlevel>1:
+            for i in range(questlevel-1):
+                await self.button_release('down')
+                await self.wait(0.2)
+        await self.button_release('a')
+        await self.wait(1)
         # // クエスト一覧のYページ目へ移動
+        if questpage>1:
+            for i in range(questpage-1):
+                await self.button_release('r')
+                await self.wait(0.2)
         # pushHatButton(Hat::RIGHT, 200, questpage -1);
         # // 上からZ番目のクエストを選択
-        # pushHatButton(Hat::DOWN, 200, questlist -1);
-        # pushButton(Button::A, 200, 2);
-        # pushButton(Button::A, 500);
-        # pushButton(Button::B, 100, 7);
+        if questlist>1:
+            for i in range(questlist-1):
+                await self.button_release('down')
+                await self.wait(0.2)
+        await self.button_release('a')
+        await self.wait(0.2)
+        await self.button_release('a')
+        await self.wait(0.2)
+        await self.button_release('a')
+        await self.wait(0.5)
+        for i in range(7):
+            await self.button_release('b')
+            await self.wait(0.1)
