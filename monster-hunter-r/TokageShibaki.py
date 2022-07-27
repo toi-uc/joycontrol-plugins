@@ -296,9 +296,9 @@ class TokageShibaki(JoycontrolPlugin):
             await self.left_stick(angle=180)
             await self.wait(1)
             await self.left_stick(angle=173)
-            await self.wait(4.6)
-            await self.left_stick(angle=131)
-            await self.wait(1.6)
+            await self.wait(4.5)
+            await self.left_stick(angle=130)
+            await self.wait(1.5)
             # // 虫移動
             await self.button_press('zl')
             await self.button_push('x')
