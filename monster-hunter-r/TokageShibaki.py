@@ -42,35 +42,35 @@ class TokageShibaki(JoycontrolPlugin):
         await self.left_stick('center') 
         await self.button_release('r')
         # // 集会所クエスト　マスター（緊急クエストが出ている場合、下入力が必要)
-        await self.button_release('down')
+        await self.button_push('down')
         await self.wait(0.1)
-        await self.button_release('a')
+        await self.button_push('a')
         await self.wait(3)
         # // MRの溶岩洞での狩猟クエスト選択（上記、設定項目を参照）
         # // クエストレベル、上からX番目を選択
         if questlevel>1:
             for i in range(questlevel-1):
-                await self.button_release('down')
+                await self.button_push('down')
                 await self.wait(0.2)
-        await self.button_release('a')
+        await self.button_push('a')
         await self.wait(1)
         # // クエスト一覧のYページ目へ移動
         if questpage>1:
             for i in range(questpage-1):
-                await self.button_release('r')
+                await self.button_push('r')
                 await self.wait(0.2)
         # pushHatButton(Hat::RIGHT, 200, questpage -1);
         # // 上からZ番目のクエストを選択
         if questlist>1:
             for i in range(questlist-1):
-                await self.button_release('down')
+                await self.button_push('down')
                 await self.wait(0.2)
-        await self.button_release('a')
+        await self.button_push('a')
         await self.wait(0.2)
-        await self.button_release('a')
+        await self.button_push('a')
         await self.wait(0.2)
-        await self.button_release('a')
+        await self.button_push('a')
         await self.wait(0.5)
         for i in range(7):
-            await self.button_release('b')
+            await self.button_push('b')
             await self.wait(0.1)
