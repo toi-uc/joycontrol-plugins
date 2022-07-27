@@ -31,6 +31,8 @@ class TokageShibaki(JoycontrolPlugin):
         questpage  = int(self.options[1]) # 選んだレベルのクエスト一覧の選択画面、何ページ目か
         questlist  = int(self.options[2]) # 選んだページ内、上から何番目のクエストか
 
+        half_power = self.max_stick_power * 0.8
+
 
         # // 開始直後のみ、はじめに集会所入り口へ移動する
         # // 最初の数回の入力はswitchが認識しない場合があるので、無駄打ちをしておく
