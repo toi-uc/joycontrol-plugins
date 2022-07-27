@@ -30,6 +30,7 @@ class TokageShibaki(JoycontrolPlugin):
         questlevel = int(self.options[0]) # クエストのレベル選択画面、上から何番目か
         questpage  = int(self.options[1]) # 選んだレベルのクエスト一覧の選択画面、何ページ目か
         questlist  = int(self.options[2]) # 選んだページ内、上から何番目のクエストか
+        kinkyu     = int(self.options[3]) # 緊急クエストあるなら1に
 
         half_power = self.max_stick_power * 0.8
 
@@ -70,8 +71,9 @@ class TokageShibaki(JoycontrolPlugin):
             await self.left_stick('center') 
             await self.button_release('r')
             # // 集会所クエスト　マスター（緊急クエストが出ている場合、下入力が必要)
-            # await self.button_push('down')
-            # await self.wait(0.1)
+            if kinkyu==1:
+                await self.button_push('down')
+                await self.wait(0.2)
             await self.button_push('a')
             await self.wait(3)
             # // MRの溶岩洞での狩猟クエスト選択（上記、設定項目を参照）
