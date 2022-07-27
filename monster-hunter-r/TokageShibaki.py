@@ -207,7 +207,7 @@ class TokageShibaki(JoycontrolPlugin):
                 await self.button_push('a')
                 await self.wait(0.1)
             # // 四角形の渦上に移動、立ち止まらずにA押しを繰り返し
-            await self.left_stick(angle=180, power=half_power)
+            await self.left_stick(angle=0, power=half_power)
             for i in range(3):
                 await self.button_push('a')
                 await self.wait(0.05)
@@ -301,6 +301,9 @@ class TokageShibaki(JoycontrolPlugin):
             await self.wait(1.6)
             # // 虫移動
             await self.button_press('zl')
+            await self.button_push('x')
+            await self.wait(0.05)
+            await self.button_push('x')
             await self.wait(0.1)
             await self.button_push('x')
             await self.wait(1.5)
