@@ -59,7 +59,7 @@ class TokageShibaki(JoycontrolPlugin):
         while True:
             # 集会所初期位置～受付話しかけ
             await self.button_press('r')
-            await self.left_stick(angle=45)
+            await self.left_stick(angle=43)
             await self.wait(1)
             await self.button_push('a')
             await self.wait(0.1)
@@ -190,7 +190,7 @@ class TokageShibaki(JoycontrolPlugin):
             await self.left_stick('center')
             await self.wait(4)
             await self.left_stick(angle=315, power=half_power) # 80, 80が怪しい
-            await self.wait(0.8)
+            await self.wait(0.5)
             await self.left_stick('center')
             await self.wait(0.3)
             # // 武器出しからA連打、スラアクぶん回し
@@ -298,9 +298,10 @@ class TokageShibaki(JoycontrolPlugin):
             await self.left_stick(angle=173)
             await self.wait(4.6)
             await self.left_stick(angle=131)
-            await self.wait(1.7)
+            await self.wait(1.6)
             # // 虫移動
             await self.button_press('zl')
+            await self.wait(0.1)
             await self.button_push('x')
             await self.wait(1.5)
             await self.button_push('x')
