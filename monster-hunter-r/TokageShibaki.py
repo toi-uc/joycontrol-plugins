@@ -15,6 +15,9 @@
 # */
 
 import logging
+from select import KQ_FILTER_AIO
+
+from numpy import kaiser
 from JoycontrolPlugin import JoycontrolPlugin, JoycontrolPluginError
 
 logger = logging.getLogger(__name__)
@@ -31,6 +34,7 @@ class TokageShibaki(JoycontrolPlugin):
         questpage  = int(self.options[1]) # 選んだレベルのクエスト一覧の選択画面、何ページ目か
         questlist  = int(self.options[2]) # 選んだページ内、上から何番目のクエストか
         kinkyu     = int(self.options[3]) # 緊急クエストあるなら1に
+        kaii       = int(self.options[4]) # 傀異調査が出ているなら1に
 
         half_power = self.max_stick_power * 0.8
 
@@ -72,6 +76,9 @@ class TokageShibaki(JoycontrolPlugin):
             await self.button_release('r')
             # // 集会所クエスト　マスター（緊急クエストが出ている場合、下入力が必要)
             if kinkyu==1:
+                await self.button_push('down')
+                await self.wait(0.2)
+            if kaii==1:
                 await self.button_push('down')
                 await self.wait(0.2)
             await self.button_push('a')
