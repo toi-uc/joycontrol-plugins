@@ -15,9 +15,6 @@
 # */
 
 import logging
-from select import KQ_FILTER_AIO
-
-from numpy import kaiser
 from JoycontrolPlugin import JoycontrolPlugin, JoycontrolPluginError
 
 logger = logging.getLogger(__name__)
